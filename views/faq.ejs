@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawal Covid-19</title>
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/slick-theme.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@700&display=swap" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <% include templates/navbar.ejs %>
+
+    <section id="head-faq">
+        <div class="col-12 wrap-faq bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 order-lg-12 text-center px-0">
+                        <a href="https://www.freepik.com/stories"><img src="/img/question-left.png" alt="Flu"></a>
+                    </div>
+                    <div class="col-md-7 order-lg-1 title-kontak">
+                        <div class="row">
+                        <div class="col-12">
+                            <h3><b>Pertanyaan yang Sering Ditanyakan</b></h3>
+                        </div>
+                        <div class="col-12">
+                            <p>Mari mengenali lebih dalam tentang Covid-19, agar kita semua lebih waspada dan dapat menjaga diri kita, dan orang terkasih. Dibawah ini merupakan kumpulan dari pertanyaan-pertanyaan yang paling sering ditanyakan oleh masyarakat.</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="list-faq">
+        <div class="container mt-5">
+            <div class="col-md-6 col-search">
+                <div class="row">
+                    <input type="text" id="myInput" onkeyup="searchFAQ()" placeholder="Cari pertanyaan" title="Cari pertanyaan">
+                    <img src="/img/search.png" alt="image-FAQ">
+                </div>
+            </div>
+
+            <div class="col-12 toogle-faq pl-0" data-toggle="collapse" data-target="#text-faq">
+                <div class="col-1 text-center">1.</div>
+                <div class="col-11 pl-0">
+                    <p>Apa itu Novel Coronavirus (2019-nCoV)?</p>
+                    <p id="text-faq" class="collapse">
+                        Novel coronavirus (2019-nCoV) adalah jenis baru coronavirus yang belum pernah diidentifikasi sebelumnya pada manusia. Coronavirus merupakan keluarga besar virus yang menyebabkan penyakit pada manusia dan hewan. Pada manusia menyebabkan penyakit mulai flu biasa hingga penyakit yang serius seperti Middle East Respiratory Syndrome (MERS) dan Sindrom Pernapasan Akut Berat/ Severe Acute Respiratory Syndrome (SARS).<br><br>
+                        Pada 11 Februari 2020, World Health Organization (WHO) mengumumkan nama penyakit yang disebabkan 2019-nCov, yaitu Coronavirus Disease (COVID-19).
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <% include templates/footer.ejs %>
+    
+</body>
+</html>

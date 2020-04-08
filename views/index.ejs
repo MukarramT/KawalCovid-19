@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawal Covid-19</title>
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/slick-theme.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@700&display=swap" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body onload="hideSlick()">
+    <% include templates/navbar.ejs %>
+
+    <section id="head">
+        <div class="col-12">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-12 title-head">
+                        <p>Situasi Virus Corona</p>
+                        <p><b>Sumatera Utara</b></p>
+                    </div>
+
+                    <div class="col-lg-7 col-banner">
+                        <div class="col-lg-12 px-0 wrap-banner fade-carousel" onmouseover="showSlick()" onmouseout="hideSlick()">
+                            <img src="/img/banner6.jpg" alt="">
+                            <img src="/img/banner3.jpg" alt="">
+                            <img src="/img/banner8.jpeg" alt="">
+                            <img src="/img/banner9.jpeg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-hub align-content-end">
+                        <div class="col-lg-10 col-md-7 wrap-call">
+                            <a id="call-head" href="tel:0821-6490-2482">
+                            <div class="row">
+                                <div class="wrap-call-icon">
+                                    <div class="call-icon">
+                                        <img src="/img/phone.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-9 pr-0">
+                                    <p><b>Call Center Covid-19</b></p>
+                                    <p>PemProv Sumatera Utara</p>
+                                    <p>0821-6490-2482</p>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-10 col-md-7 bg-white wrap-call">
+                            <div class="row">
+                                <div class="wrap-call-icon">
+                                    <div class="call-icon">
+                                        <img src="/img/pin.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-9 pr-0">
+                                    <p><b>Posko Pengaduan Covid-19</b></p>
+                                    <p>PemProv Sumatera Utara</p>
+                                    <p>Kantor Gubernur</p>
+                                    <p>Jl. P. Diponegoro No. 30 Medan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="data">
+        <div class="container">
+            <div class="col-12 px-0">
+
+                <div class="col-12 title-angka">
+                    <p>Angka Kejadian di Sumatera Utara</p>
+                    <p>Pembaruan Terakhir : <span id="last-update" class="font-angka">--</span></p>
+                </div>
+
+                <div class="col-12 wrap-data pb-4">
+                    <div class="row">
+
+                        <div class="col-lg-4">
+                            <div class="col-12 wrap-data-1 bg-positif">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="data-icon bg-positif-icon">
+                                            <img src="/img/positif.png">
+                                        </div>
+                                        <p class="sub-title-data">Positif Covid-19</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 data-sumut px-0">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            Sumatera Utara
+                                        </div>
+                                        <div class="col-4 data-angka">
+                                            <p id="data-positif" class="font-angka">
+                                                --
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 px-0" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            Indonesia
+                                        </div>
+                                        <div class="col-4 data-angka">
+                                            <p id="data-positif" class="font-angka">
+                                                19
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="col-12 wrap-data-1 bg-sembuh">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="data-icon bg-sembuh-icon">
+                                            <img src="/img/heart.png">
+                                        </div>
+                                        <p class="sub-title-data">Sembuh</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 data-sumut px-0">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            Sumatera Utara
+                                        </div>
+                                        <div class="col-4 data-angka">
+                                            <p id="data-sembuh" class="font-angka">
+                                                --
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 px-0" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            Indonesia
+                                        </div>
+                                        <div class="col-4 data-angka">
+                                            <p id="data-positif" class="font-angka">
+                                                19
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="col-12 wrap-data-1 bg-meninggal">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="data-icon bg-meninggal-icon">
+                                            <img src="/img/rip.png">
+                                        </div>
+                                        <p class="sub-title-data">Meninggal</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 data-sumut px-0">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            Sumatera Utara
+                                        </div>
+                                        <div class="col-4 data-angka">
+                                            <p id="data-meninggal" class="font-angka">
+                                                --
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 px-0" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            Indonesia
+                                        </div>
+                                        <div class="col-4 data-angka">
+                                            <p id="data-positif" class="font-angka">
+                                                19
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="row">                        
+                        <div class="col-lg-6">
+                            <div class="col-lg-12 wrap-odp bg-white">
+                                <div class="row">
+                                    <div class="col-12 title-odp mb-3">
+                                        <p>ODP (Orang Dalam Pemantauan)</p>
+                                    </div>
+                                    <div class="col-md-4 data-odp">
+                                        <p id="odp-km" class="font-angka">0000</p>
+                                        <p>Karantina Mandiri</p>
+                                    </div>
+                                    <div class="col-md-4 data-odp">
+                                        <p id="odp-tg" class="font-angka">0000</p>
+                                        <p>Tanpa Gejala</p>
+                                    </div>
+                                    <div class="col-md-4 data-odp">
+                                        <p id="odp-selesai" class="font-angka">0000</p>
+                                        <p>Selesai Pemantauan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="col-lg-12 wrap-odp bg-white">
+                                <div class="row">
+                                    <div class="col-12 title-odp mb-3">
+                                        <p>PDP (Pasien Dalam Pengawasan)</p>
+                                    </div>
+                                    <div class="col-md-4 data-odp pr-0">
+                                        <p id="pdp-dirawat" class="font-angka">0000</p>
+                                        <p>Dirawat</p>
+                                    </div>
+                                    <div class="col-md-4 data-odp pr-0">
+                                        <p id="pdp-pulang" class="font-angka">0000</p>
+                                        <p>Pulang</p>
+                                    </div>
+                                    <div class="col-md-4 data-odp pr-0">
+                                        <p id="pdp-meninggal" class="font-angka">0000</p>
+                                        <p>Meninggal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 text-center mt-4">
+                    <a href="/data">
+                        <button class="btn btn-data">
+                            Lihat Selengkapnya
+                            <img src="/img/arrow.png" alt="">
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info">
+        <div class="container">
+            <div class="col-12 px-0">
+
+                <div class="col-12 wrap-risiko bg-white">
+                    <div class="row">
+                        <div class="col-lg-7 con-risiko">
+                            <h3><b>Ketahui Risiko dari COVID-19</b></h3>
+                            <p>COVID-19 merupakan penyakit yang disebabkan Novel Coronavirus 2019. Meski bergejala mirip dengan flu biasa, COVID-19 sampai saat ini memiliki fatalitas lebih tinggi. Virus ini juga menyebar dengan sangat cepat karena bisa pindah dari orang ke orang bahkan sebelum orang tersebut tidak menunjukkan gejala.</p>
+
+                            <div class="col-12 mt-4 px-0">
+                                <a href="/kontak">
+                                    <button class="btn btn-data">
+                                        Lihat Artikel Lainnya
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 img-covid text-center">
+                            <a href="https://www.freepik.com/stories"><img src="/img/risiko.png" alt="Flu"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-FAQ px-0">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="col-12 wrap-FAQ bg-white">
+                                <h5><b>Punya Pertanyaan Terkait Covid-19 ?</b></h5>
+                                <p>Penting bagi Anda untuk menilai kondisi secara mandiri. Apakah Anda memiliki gejala ?</p>
+                                <a href="/faq">
+                                    <button class="btn btn-FAQ">
+                                        Tanyakan Sekarang
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <div class="col-12 wrap-table bg-white">
+                                <h5><b>Hubungi Call Center</b></h5>
+
+                                <div class="col-md-6 col-search">
+                                    <div class="row">
+                                        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Cari kota atau kabupaten" title="Cari kota/kabupaten">
+                                        <img src="/img/search.png" alt="">
+                                    </div>
+                                </div>
+                                
+                                <div class="table-responsive">
+                                    <table id="myTable" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Kota/Kabupaten</th>
+                                                <th>Call Center</th>
+                                                <th>Hotline</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Kota Medan</td>
+                                                <td>
+                                                    <a id="call" href="tel:0821 6490 2482">
+                                                        0821 6490 2482
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a id="call" href="tel:0852 6131 7122">
+                                                        0852 6131 7122
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Kab. Asahan</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Kab. Batu Bara</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Kab. Dairi</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Kab. Deli Serdang</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-12 text-center mt-4">
+                                    <a href="/kontak">
+                                        <button class="btn btn-data">
+                                            Lihat Selengkapnya
+                                            <img src="/img/arrow.png" alt="">
+                                        </button>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 wrap-RS bg-white">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5><b>Daftar Rumah Sakit Rujukan di Sumatera Utara</b></h5>
+                            <p>Berikut ini adalah rumah sakit yang menjadi rujukan untuk pasien dengan status Pasien dalam Pengawasan. Anda harus mengunjungi fasilitas kesehatan terdekat terlebih dahulu seperti klinik/rumah sakit umum sebelum akhirnya dapat dirujuk ke rumah sakit khusus di bawah ini.</p>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="col-lg-4 col-search">
+                                <div class="row">
+                                    <input type="text" id="myInput-RS" onkeyup="searchRS()" placeholder="Cari rumah sakit" title="Cari kota/kabupaten">
+                                    <img src="/img/search.png" alt="">
+                                </div>
+                            </div>
+                            <div class="row" id="row-card-RS">
+                                <div class="col-lg-4 card-RS">
+                                    <div class="col-12">
+                                        <div class="card-line"></div>
+                                        <div class="col-12 px-0">
+                                            <h5>RSUP H. Adam Malik</h5>
+                                            <span>Jl. Bunga Lau No. 17, Kec. Medan Tuntungan</span>
+                                        </div>
+                                        <div class="col-12 px-0">
+                                            <a href="tel:(061) 8360143">
+                                            <button class="btn mt-3">
+                                                (061) 8360143
+                                            </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 card-RS">
+                                    <div class="col-12">
+                                        <div class="card-line"></div>
+                                        <div class="col-12 px-0">
+                                            <h5>RSUD Dr. Djasamen Saragih</h5>
+                                            <span>Jl. Sutomo No. 230, Simalungun, Kec. Siantar Sel</span>
+                                        </div>
+                                        <div class="col-12 px-0">
+                                            <a href="tel:(0622) 22959">
+                                            <button class="btn mt-3">
+                                                (0622) 22959
+                                            </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 card-RS">
+                                    <div class="col-12">
+                                        <div class="card-line"></div>
+                                        <div class="col-12 px-0">
+                                            <h5>RSU Kabanjahe</h5>
+                                            <span>Jl. Selamat Ketaren No. 08, Lau Cimba, Kabanjahe</span>
+                                        </div>
+                                        <div class="col-12 px-0">
+                                            <a href="tel:(0628) 22959">
+                                            <button class="btn mt-3">
+                                                (0628) 22959
+                                            </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center mt-4">
+                            <a href="/kontak">
+                                <button class="btn btn-data">
+                                    Lihat Rumah Sakit Lainnya
+                                </button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <% include templates/footer.ejs %>
+
+    <script>
+        hideSlick();
+        function hideSlick(){
+            document.getElementById('slick-next').style.display = 'none';
+            document.getElementById('slick-prev').style.display = 'none';
+        }
+        function showSlick(){
+            document.getElementById('slick-next').style.display = 'block';
+            document.getElementById('slick-prev').style.display = 'block';
+        }
+    </script>
+
+    <script>
+    readTodos();
+    async function readTodos() {
+        try{
+            const getAPI = await fetch("/api/pasien")
+            const result = await getAPI.json();
+
+            const lastUpdate = result.tanggal;
+            document.getElementById('last-update').innerHTML = lastUpdate;
+
+            const ps_positif = result.data[result.data.length-1].pc19_dirawat;
+            const ps_sembuh = result.data[result.data.length-1].pc19_sembuh;
+            const ps_meninggal = result.data[result.data.length-1].pc19_meninggal;
+
+            const odp_km = result.data[result.data.length-1].odp_karantina_mandiri;
+            const odp_tg = result.data[result.data.length-1].odp_tanpa_gejala;
+            const odp_selesai = result.data[result.data.length-1].odp_selesai_pantau;
+
+            const pdp_dirawat = result.data[result.data.length-1].pdp_dirawat;
+            const pdp_pulang = result.data[result.data.length-1].pdp_pulang;
+            const pdp_meninggal = result.data[result.data.length-1].pdp_meninggal;
+
+            // console.log(todos.data[todos.data.length-1]);
+            document.getElementById('data-positif').innerHTML = ps_positif;
+            document.getElementById('data-sembuh').innerHTML = ps_sembuh;
+            document.getElementById('data-meninggal').innerHTML = ps_meninggal;
+
+            document.getElementById('odp-km').innerHTML = odp_km;
+            document.getElementById('odp-tg').innerHTML = odp_tg;
+            document.getElementById('odp-selesai').innerHTML = odp_selesai;
+
+            document.getElementById('pdp-dirawat').innerHTML = pdp_dirawat;
+            document.getElementById('pdp-pulang').innerHTML = pdp_pulang;
+            document.getElementById('pdp-meninggal').innerHTML = pdp_meninggal;
+
+            // olTodo.appendChild(li)
+            // todos.forEach(t=>{
+            //     const li = document.createElement("p")
+            //     li.textContent = t.title;
+            //     li.id = t.id;
+            //     // li.textContent = t.name +" "+ t.desc;
+            //     // li.id = t.id;
+            //     olTodo.appendChild(li)
+            // })
+        }
+        catch (e) {
+            console.log("Error reading the todos.")
+        }
+    }
+
+    function searchFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }       
+        }
+    }
+
+    function searchRS() {
+        var input, filter, row, tr, td, i, txtValue;
+        input = document.getElementById("myInput-RS");
+        filter = input.value.toUpperCase();
+        row = document.getElementById("row-card-RS");
+        tr = row.getElementsByClassName('card-RS');
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("h5")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        if (input.value.length == 0) {limitRS();}
+    }
+
+    limitRS();
+    function limitRS(){
+        var input, filter, row, tr, td, i, txtValue;
+
+        row = document.getElementById("row-card-RS");
+        tr = row.getElementsByClassName('card-RS');
+
+        for (i = 3; i < tr.length; i++) {
+            tr[i].style.display = "none";
+        }
+    }
+    </script>
+    
+    <script src="/js/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.fade-carousel').slick({
+                autoplay: true,
+                autoplaySpeed: 5000,
+            });
+        });
+    </script>
+</body>
+</html>
