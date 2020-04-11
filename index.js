@@ -1,7 +1,10 @@
 const express = require('express');
 const request = require('request');
 const engine = require('ejs-locals');
+const path = require('path');
 const app = express();
+
+// let public = path.join(__dirname, '..', 'storage-covid-sumut', 'artikel');
 
 app.use(express.static('public'));
 app.use(express.json());

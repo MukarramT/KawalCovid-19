@@ -53,10 +53,10 @@ a.nav-link{
     color: #666666;
     /* padding: 0; */
 }
-a.nav-link:not():hover{
+/* a.nav-link:not():hover{
     color: #000000;
     background-color: var(--bg-green-2);
-}
+} */
 .active{
     color: #000000;
     font-weight: 600;
@@ -77,6 +77,17 @@ a.nav-link:not():hover{
 .btn-download:hover{
     background-color: var(--bg-green-1);
 }
+button.navbar-toggler{
+    box-shadow: none;
+    outline: none;
+}
+.icon-navbar .fa{
+    font-size: 1.7rem;
+}
+.icon-navbar .fa-times{
+    font-size: 1.9rem;
+    font-weight: 400;
+}
 @media(min-width:991px){
     .navbar-brand{
         font-size: 18px;
@@ -88,6 +99,14 @@ a.nav-link:not():hover{
     }
     a.navbar-brand{
         padding-left: 15px;
+    }
+    a.nav-link{
+        /* background-color: hotpink; */
+        width: 100%;
+        padding: 10px 0;
+    }
+    a.nav-link:hover{
+        background-color: #FAFAFA;
     }
 }
 @media(max-width:991px){
@@ -370,7 +389,7 @@ a#call-head:hover{color: #000000;}
     display: flex;
     height: 0px;
 }
-.img-covid img{width: 90%;}
+.img-covid img{width: 80%;}
 .img-covid img#distancing{
     width: 100%;
 }
@@ -442,15 +461,15 @@ img#question{
     border-top-right-radius: 10px;
     font-size: 14px;
 }
-a#call{
-    text-decoration: none;
-    color: #000000;
-    background-color: var(--bg-yellow);
-    padding: 7px;
+#bodyTable .btn{
+    background-color: #FECE63;
+    transition: .1s ease-in;
+    border: none;
     border-radius: 7px;
+    letter-spacing: .5px;
 }
-a#call:hover{
-    background-color: var(--bg-yellow-hover);
+#bodyTable .btn:hover{
+    background-color: #E5BA59;
 }
 .table th, .table thead th, .table td{
     border-top: none;
@@ -838,8 +857,11 @@ p.isi-berita{
     }
 }
 
-
-
 .dropdown-toggle::after{
     content: none;
+}
+
+.dropdown-menu{
+    max-height: 300px;
+    overflow: auto;
 }

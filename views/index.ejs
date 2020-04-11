@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/slick.css">
     <link rel="stylesheet" href="/css/slick-theme.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@700&display=swap" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
@@ -91,7 +92,7 @@
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="data-icon bg-positif-icon">
-                                            <img src="/img/positif.png">
+                                            <img src="/img/positif.png" alt="Icon">
                                         </div>
                                         <p class="sub-title-data">Positif Covid-19</p>
                                     </div>
@@ -108,7 +109,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 px-0" style="display: none;">
+                                <!-- <div class="col-sm-12 px-0" style="display: none;">
                                     <div class="row">
                                         <div class="col-8">
                                             Indonesia
@@ -119,7 +120,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>                            
                         </div>
 
@@ -128,7 +129,7 @@
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="data-icon bg-sembuh-icon">
-                                            <img src="/img/heart.png">
+                                            <img src="/img/heart.png" alt="Icon">
                                         </div>
                                         <p class="sub-title-data">Sembuh</p>
                                     </div>
@@ -145,7 +146,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 px-0" style="display: none;">
+                                <!-- <div class="col-sm-12 px-0" style="display: none;">
                                     <div class="row">
                                         <div class="col-8">
                                             Indonesia
@@ -156,7 +157,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -165,7 +166,7 @@
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="data-icon bg-meninggal-icon">
-                                            <img src="/img/rip.png">
+                                            <img src="/img/rip.png" alt="Icon">
                                         </div>
                                         <p class="sub-title-data">Meninggal</p>
                                     </div>
@@ -182,7 +183,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 px-0" style="display: none;">
+                                <!-- <div class="col-sm-12 px-0" style="display: none;">
                                     <div class="row">
                                         <div class="col-8">
                                             Indonesia
@@ -193,7 +194,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -490,10 +491,10 @@
                             <div class="col-lg-7 text-berita-h">
                                 <h4>Sumut Terima Bantuan 50 Ribu</h4>
                                 <p>Tanggal Upload</p>
-                                <p class="isi-berita">KOTA MEDAN - Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ut voluptatum reprehenderit veritatis, quia magnam!</p>
+                                <p class="isi-berita">KOTA MEDAN - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, esse aliquid illo omnis tenetur voluptatum autem explicabo optio numquam, rerum mollitia voluptatibus tempore accusamus quam officiis! Vel consequuntur dolorem quidem sunt tempore, sint in laudantium?</p>
                             </div>
                             <div class="col-lg-5 img-berita-h">
-                                <img src="/img/banner3.jpg" width="100%" alt="">
+                                <img src="/img/banner9.jpeg" width="100%" alt="Berita">
                             </div>
                             </div>
                         </div>
@@ -503,10 +504,10 @@
                             <div class="col-lg-7 text-berita-h">
                                 <h4>Sumut Terima Bantuan 50 Ribu</h4>
                                 <p>Tanggal Upload</p>
-                                <p class="isi-berita">KOTA MEDAN - Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ut voluptatum reprehenderit veritatis, quia magnam!</p>
+                                <p class="isi-berita">KOTA MEDAN - Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat libero totam dolorum cupiditate, aut aliquam odio itaque molestiae architecto modi assumenda asperiores neque mollitia aspernatur et culpa rerum tenetur ipsa vero ratione commodi nemo cumque.</p>
                             </div>
                             <div class="col-lg-5 img-berita-h">
-                                <img src="/img/banner3.jpg" width="100%" alt="">
+                                <img src="/img/banner9.jpeg" width="100%" alt="Berita">
                             </div>
                             </div>
                         </div>
@@ -528,8 +529,8 @@
     <% include templates/footer.ejs %>
 
     <script>
-        hideSlick();
-        hideSlickThumb();
+        // hideSlick();
+        // hideSlickThumb();
         function hideSlick(){
             document.getElementById('slick-next').style.display = 'none';
             document.getElementById('slick-prev').style.display = 'none';
@@ -557,7 +558,7 @@
     limitTextBerita();
     function limitTextBerita(){
         let p = document.getElementsByClassName('isi-berita');
-        let maxLength = 120;
+        let maxLength = 300;
 
         for (let i = 0; i < p.length; i++) {
             let text = p[i].innerText;
@@ -665,7 +666,7 @@
     
     getDataCC();
     async function getDataCC(){
-        const getAPI = await fetch("/api/pasien/recent")
+        const getAPI = await fetch("/api/kabupaten")
         const result = await getAPI.json();
         const data = result.data;
         let tbody = "";
@@ -673,12 +674,29 @@
 
         for (let i = 0; i < data.length; i++) {
             let j = i+1;
-            tbody += "<tr><td>"+ j +"</td><td>"+ data[i].kabupaten +"</td><td>-</td><td>-</td></tr>";
-            dropCC += "<p id='myInput"+j+"' class='dropdown-item' onclick='searchCC("+j+")'>"+ data[i].kabupaten +"</p>";
+            if (data[i].call_center.length == 0 && data[i].hotline.length == 0) {
+                data[i].call_center = "-";
+                data[i].hotline = "-";
+                tbody += "<tr><td>"+ j +"</td><td>"+ data[i].nama +"</td><td>"+ data[i].call_center +"</td><td>"+ data[i].hotline +"</td></tr>";
+            }
+            else if (data[i].call_center.length == 0) {
+                data[i].call_center = "-";
+                tbody += "<tr><td>"+ j +"</td><td>"+ data[i].nama +"</td><td>"+ data[i].call_center +"</td><td><a href='tel:"+ data[i].hotline +"'><button class='btn'>"+ data[i].hotline +"</button></a></td></tr>";
+            }
+            else if (data[i].hotline.length == 0) {
+                data[i].hotline = "-";
+                tbody += "<tr><td>"+ j +"</td><td>"+ data[i].nama +"</td><td><a href='tel:"+ data[i].call_center +"'><button class='btn'>"+ data[i].call_center +"</button></a></td><td>"+ data[i].hotline +"</td></tr>";
+            }
+            else{
+                tbody += "<tr><td>"+ j +"</td><td>"+ data[i].nama +"</td><td><a href='tel:"+ data[i].call_center +"'><button class='btn'>"+ data[i].call_center +"</button></a></td><td><a href='tel:"+ data[i].hotline +"'><button class='btn'>"+ data[i].hotline +"</button></a></td></tr>";
+            }
+
+            dropCC += "<p id='myInput"+j+"' class='dropdown-item' onclick='searchCC("+j+")'>"+ data[i].nama +"</p>";
         }
 
         document.getElementById('bodyTable').innerHTML = tbody;
         document.getElementById('dropCC').innerHTML = dropCC;
+        limitCC();
     }
 
     getDataRS();
@@ -710,6 +728,16 @@
             tr[i].style.display = "none";
         }
     }
+
+    function limitCC(){
+        let input, filter, row, tr, td, i, txtValue;
+        row = document.getElementById("bodyTable");
+        tr = row.getElementsByTagName('tr');
+
+        for (i = 5; i < tr.length; i++) {
+            tr[i].style.display = "none";
+        }
+    }
     </script>
 
     <script src="/js/slick.min.js"></script>
@@ -737,7 +765,7 @@
                 $('.thumbnail-carousel').slick({
                     autoplay: true,
                     autoplaySpeed: 4000,
-                    infinite: false,
+                    infinite: true,
                     lazyLoad: 'ondemand',
                     slidesToShow: 2,
                     slidesToScroll: 1

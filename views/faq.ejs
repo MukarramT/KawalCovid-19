@@ -13,31 +13,6 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <style>
-        .bs-example{
-            margin: 20px;
-        }
-        .accordion .fa{
-            margin-right: 0.5rem;
-        }
-    </style>
-    
-
-<script>
-    $(document).ready(function(){
-        // Add minus icon for collapse element which is open by default
-        // $(".collapse.show").each(function(){
-        // 	$(this).prev(".card-header").find(".fa").addClass("fa-minus").removeClass("fa-plus");
-        // });
-        
-        // Toggle plus minus icon on show hide of collapse element
-        $(".collapse").on('show.bs.collapse', function(){
-        	$(this).prev(".isi-faq").find(".fa").removeClass("fa-chevron-down").addClass("fa-chevron-up");
-        }).on('hide.bs.collapse', function(){
-        	$(this).prev(".isi-faq").find(".fa").removeClass("fa-chevron-up").addClass("fa-chevron-down");
-        });
-    });
-</script>
 </head>
 <body>
     <% include templates/navbar.ejs %>
@@ -471,6 +446,20 @@
     <% include templates/footer.ejs %>
 
     <script>
+        $(document).ready(function(){
+            // Add minus icon for collapse element which is open by default
+            // $(".collapse.show").each(function(){
+            // 	$(this).prev(".card-header").find(".fa").addClass("fa-minus").removeClass("fa-plus");
+            // });
+            
+            // Toggle plus minus icon on show hide of collapse element
+            $(".collapse").on('show.bs.collapse', function(){
+                $(this).prev(".isi-faq").find(".fa").removeClass("fa-chevron-down").addClass("fa-chevron-up");
+            }).on('hide.bs.collapse', function(){
+                $(this).prev(".isi-faq").find(".fa").removeClass("fa-chevron-up").addClass("fa-chevron-down");
+            });
+        });
+        
         function searchFAQ() {
         var input, filter, row, tr, td, i, txtValue;
         input = document.getElementById("myInput");
