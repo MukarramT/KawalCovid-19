@@ -9,6 +9,7 @@ app.use(express.json());
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
+
 app.get("/", (req, res) => {
     res.render('index', {active: 0});
 });
@@ -18,8 +19,11 @@ app.get("/data", (req, res) => {
 app.get("/kontak", (req, res) => {
     res.render('kontak', {active: 2})
 });
+app.get("/berita", (req, res) => {
+    res.render('berita', {active: 3})
+});
 app.get("/faq", (req, res) => {
-    res.render('faq', {active: 3})
+    res.render('faq', {active: 4})
 });
 
 

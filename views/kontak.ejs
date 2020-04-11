@@ -46,140 +46,16 @@
                         <h5><b>Daftar Rumah Sakit Rujukan di Sumatera Utara</b></h5>
                         <p>Berikut ini adalah rumah sakit yang menjadi rujukan untuk pasien dengan status Pasien dalam Pengawasan. Anda harus mengunjungi fasilitas kesehatan terdekat terlebih dahulu seperti klinik/rumah sakit umum sebelum akhirnya dapat dirujuk ke rumah sakit khusus di bawah ini.</p>
                     </div>
-                    <div class="col-12 mt-4">
-                        <div class="col-md-6 col-search">
-                            <div class="row">
-                                <input type="text" id="myInput" onkeyup="searchRS()" placeholder="Cari rumah sakit" title="Cari rumah sakit">
-                                <img src="/img/search.png" alt="">
+                    <div class="col-12 mt-3">
+                        <div class="col-md-5 col-search btn dropdown-toggle" data-toggle="dropdown">
+                            <span>Cari rumah sakit rujukan</span>
+                            <img src="/img/botArrow.png" alt="arrow">
+                            <div class="dropdown-menu" id="dropRS">
+                              <!-- FROM JS -->
                             </div>
                         </div>
-                        <div class="row">
-                            <!-- 1 -->
-                            <div class="col-lg-6 card-RS">
-                                <div class="col-12">
-                                    <div class="card-line"></div>
-                                    <div class="col-12 px-0">
-                                        <h5>RSUP H. Adam Malik</h5>
-                                        <span>Jl. Bunga Lau No. 17. Kemenangan Tani. Kec. Medan Tuntungan. Kota Medan. 20136</span>
-                                    </div>
-                                    <div class="col-12 px-0">
-                                        <a href="tel:(061) 8360143">
-                                        <button class="btn mt-3">
-                                            (061) 8360143
-                                        </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 2 -->
-                            <div class="col-lg-6 card-RS">
-                                <div class="col-12">
-                                    <div class="card-line"></div>
-                                    <div class="col-12 px-0">
-                                        <h5>RSUD Dr. Djasamen Saragih</h5>
-                                        <span>Jl. Sutomo No. 230. Simalungun. Kec. Siantar Sel. Kota Pematang Siantar. 21121</span>
-                                    </div>
-                                    <div class="col-12 px-0">
-                                        <a href="tel:(0622) 22959">
-                                        <button class="btn mt-3">
-                                            (0622) 22959
-                                        </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 3 -->
-                            <div class="col-lg-6 card-RS">
-                                <div class="col-12">
-                                    <div class="card-line"></div>
-                                    <div class="col-12 px-0">
-                                        <h5>RSU Kabanjahe</h5>
-                                        <span>Jl. Selamat Ketaren No. 08. Lau Cimba. Kabanjahe. Kab. Karo. 22111</span>
-                                    </div>
-                                    <div class="col-12 px-0">
-                                        <a href="tel:(0628) 22959">
-                                        <button class="btn mt-3">
-                                            (0628) 22959
-                                        </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 4 -->
-                            <div class="col-lg-6 card-RS">
-                                <div class="col-12">
-                                    <div class="card-line"></div>
-                                    <div class="col-12 px-0">
-                                        <h5>RSU Tarutung</h5>
-                                        <span>Jl. Agus Salim No. 1. Hutagalung Siwaluompu. Tarutung. Kab. Tapanuli Utara. 22411</span>
-                                    </div>
-                                    <div class="col-12 px-0">
-                                        <a href="tel:(0633) 21303">
-                                        <button class="btn mt-3">
-                                            (0633) 21303
-                                        </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 5 -->
-                            <div class="col-lg-6 card-RS">
-                                <div class="col-12">
-                                    <div class="card-line"></div>
-                                    <div class="col-12 px-0">
-                                        <h5>RSU Padang Sidempuan</h5>
-                                        <span>Jl. Dr. Ferdinan Lumban Tobing No. 10. Padangsidimpuan</span>
-                                    </div>
-                                    <div class="col-12 px-0">
-                                        <a href="tel:(0634-21780)">
-                                        <button class="btn mt-3">
-                                            (0634-21780)
-                                        </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 6 -->
-                            <div class="col-lg-6 card-RS">
-                                <div class="col-12">
-                                    <div class="card-line"></div>
-                                    <div class="col-12 px-0">
-                                        <h5>RS GL Tobing</h5>
-                                        <span>Limau Manis. Tj. Morawa. Kab. Deli Serdang. 20362</span>
-                                    </div>
-                                    <div class="col-12 px-0">
-                                        <a href="tel:(061) 7944796">
-                                        <button class="btn mt-3">
-                                            (061) 7944796
-                                        </button>
-                                        </a>
-                                        <a href="tel:+62 822-6804-0024">
-                                        <button class="btn mt-3">
-                                            +62 822-6804-0024
-                                        </button>
-                                        </a>
-                                    </div>
-                                    <p id="khusus"><i>*Hanya untuk PDP (Pasien Dalam Pengawasan)</i></p>
-                                </div>
-                            </div>
-                            <!-- 7 -->
-                            <div class="col-lg-6 card-RS">
-                                <div class="col-12">
-                                    <div class="card-line"></div>
-                                    <div class="col-12 px-0">
-                                        <h5>RS Martha Friska Multatuli Medan</h5>
-                                        <span>Jl. Multatuli No. 1. A U R. Kec. Medan Maimun. Kota Medan. 20212</span>
-                                    </div>
-                                    <div class="col-12 px-0">
-                                        <a href="tel:(061) 4149666">
-                                        <button class="btn mt-3">
-                                            (061) 4149666
-                                        </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div class="row" id="row-card-RS">
+                            <!-- FROM DBS -->
                         </div>
                     </div>
 
@@ -193,10 +69,11 @@
             <div class="col-12 wrap-table bg-white">
                 <h4><b>Hubungi Call Center</b></h4>
 
-                <div class="col-md-6 col-search">
-                    <div class="row">
-                        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Cari kota atau kabupaten" title="Cari kota/kabupaten">
-                        <img src="/img/search.png" alt="">
+                <div class="col-md-5 col-search btn dropdown-toggle" data-toggle="dropdown">
+                    <span>Cari kota/kabupaten</span>
+                    <img src="/img/botArrow.png" alt="">
+                    <div class="dropdown-menu" id="dropCC">
+                      <!-- FROM JS -->
                     </div>
                 </div>
                 
@@ -210,45 +87,8 @@
                                 <th>Hotline</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Kota Medan</td>
-                                <td>
-                                    <a id="call" href="tel:0821 6490 2482">
-                                        0821 6490 2482
-                                    </a>
-                                </td>
-                                <td>
-                                    <a id="call" href="tel:0852 6131 7122">
-                                        0852 6131 7122
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Kab. Asahan</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Kab. Batu Bara</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Kab. Dairi</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Kab. Deli Serdang</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
+                        <tbody id="bodyTable">
+                            <!-- FROM DBS -->
                         </tbody>
                     </table>
                 </div>
@@ -258,6 +98,86 @@
     </section>
 
     <% include templates/footer.ejs %>
+
+    <script>
+    getDataCC();
+    async function getDataCC(){
+        const getAPI = await fetch("/api/pasien/recent")
+        const result = await getAPI.json();
+        const data = result.data;
+        let tbody = "";
+        let dropCC = "";
+
+        for (let i = 0; i < data.length; i++) {
+            let j = i+1;
+            tbody += "<tr><td>"+ j +"</td><td>"+ data[i].kabupaten +"</td><td>-</td><td>-</td></tr>";
+            dropCC += "<p id='myInput"+j+"' class='dropdown-item' onclick='searchCC("+j+")'>"+ data[i].kabupaten +"</p>";
+        }
+
+        document.getElementById('bodyTable').innerHTML = tbody;
+        document.getElementById('dropCC').innerHTML = dropCC;
+    }
+
+    function searchCC(j) {
+        var input, filter, table, tr, td, i, txtValue;
+
+        input = document.getElementById("myInput"+j);
+        filter = input.textContent;
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue == filter) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }       
+        }
+    }
+  
+    getDataRS();
+    async function getDataRS(){
+        const getAPI = await fetch("/api/rsrujukan");
+        const result = await getAPI.json();
+        const data = result.data;
+        let tbody = "";
+        let dropRS = "";
+
+        for (let i = 0; i < data.length; i++) {
+            let j = i+1;
+            tbody += "<div class='col-lg-6 card-RS'><div class='col-12'><div class='card-line'></div><div class='px-0'><h5>"+ data[i].nama +"</h5><span>"+ data[i].alamat +"</span></div><div class='px-0'><a href='tel:"+ data[i].no_telp +"'><button class='btn mt-3'>"+ data[i].no_telp +"</button></a></div></div></div>";
+
+            dropRS += "<p id='myInput-RS"+j+"' class='dropdown-item' onclick='searchRS("+j+")'>"+ data[i].nama +"</p>";
+        }
+
+        document.getElementById('row-card-RS').innerHTML = tbody;
+        document.getElementById('dropRS').innerHTML = dropRS;
+        limitRS();
+    }
+
+    function searchRS(j) {
+        var input, filter, row, tr, td, i, txtValue;
+        input = document.getElementById("myInput-RS"+j);
+        filter = input.textContent;
+        row = document.getElementById("row-card-RS");
+        tr = row.getElementsByClassName('card-RS');
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("h5")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue == filter) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        if (input.value.length == 0) {limitRS();}
+    }
+    </script>
     
 </body>
 </html>

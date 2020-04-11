@@ -13,7 +13,7 @@
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 </head>
-<body onload="hideSlick()">
+<body onload="hideSlick(), hideSlickThumb()">
     <% include templates/navbar.ejs %>
 
     <section id="head">
@@ -27,11 +27,11 @@
                     </div>
 
                     <div class="col-lg-7 col-banner">
-                        <div class="col-lg-12 px-0 wrap-banner fade-carousel" onmouseover="showSlick()" onmouseout="hideSlick()">
-                            <img src="/img/banner6.jpg" alt="">
-                            <img src="/img/banner3.jpg" alt="">
-                            <img src="/img/banner8.jpeg" alt="">
-                            <img src="/img/banner9.jpeg" alt="">
+                        <div id="slick" class="col-lg-12 px-0 wrap-banner fade-carousel" onmouseover="showSlick()" onmouseout="hideSlick()">
+                            <img src="/img/banner6.jpg" alt="Banner">
+                            <img src="/img/banner3.jpg" alt="Banner">
+                            <img src="/img/banner8.jpeg" alt="Banner">
+                            <img src="/img/banner9.jpeg" alt="Banner">
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="wrap-call-icon">
                                     <div class="call-icon">
-                                        <img src="/img/phone.png" alt="">
+                                        <img src="/img/phone.png" alt="Icon-phone">
                                     </div>
                                 </div>
                                 <div class="col-9 pr-0">
@@ -56,7 +56,7 @@
                             <div class="row">
                                 <div class="wrap-call-icon">
                                     <div class="call-icon">
-                                        <img src="/img/pin.png" alt="">
+                                        <img src="/img/pin.png" alt="Icon-location">
                                     </div>
                                 </div>
                                 <div class="col-9 pr-0">
@@ -251,7 +251,7 @@
                     <a href="/data">
                         <button class="btn btn-data">
                             Lihat Selengkapnya
-                            <img src="/img/arrow.png" alt="">
+                            <img src="/img/arrow.png" alt="Arrow">
                         </button>
                     </a>
                 </div>
@@ -278,7 +278,7 @@
                             </div>
                         </div>
                         <div class="col-lg-5 img-covid text-center">
-                            <a href="https://www.freepik.com/stories"><img src="/img/risiko.png" alt="Flu"></a>
+                            <a href="https://www.freepik.com/stories"><img src="/img/risiko.png" alt="Illustration"></a>
                         </div>
                     </div>
                 </div>
@@ -301,10 +301,11 @@
                             <div class="col-12 wrap-table bg-white">
                                 <h5><b>Hubungi Call Center</b></h5>
 
-                                <div class="col-md-6 col-search">
-                                    <div class="row">
-                                        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Cari kota atau kabupaten" title="Cari kota/kabupaten">
-                                        <img src="/img/search.png" alt="">
+                                <div class="col-md-5 col-search btn dropdown-toggle" data-toggle="dropdown">
+                                    <span>Cari kota/kabupaten</span>
+                                    <img src="/img/botArrow.png" alt="Arrow">
+                                    <div class="dropdown-menu" id="dropCC">
+                                      <!-- FROM JS -->
                                     </div>
                                 </div>
                                 
@@ -318,45 +319,8 @@
                                                 <th>Hotline</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Kota Medan</td>
-                                                <td>
-                                                    <a id="call" href="tel:0821 6490 2482">
-                                                        0821 6490 2482
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <a id="call" href="tel:0852 6131 7122">
-                                                        0852 6131 7122
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Kab. Asahan</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Kab. Batu Bara</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Kab. Dairi</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Kab. Deli Serdang</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                            </tr>
+                                        <tbody id="bodyTable">
+                                            <!-- FROM DBS -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -365,7 +329,7 @@
                                     <a href="/kontak">
                                         <button class="btn btn-data">
                                             Lihat Selengkapnya
-                                            <img src="/img/arrow.png" alt="">
+                                            <img src="/img/arrow.png" alt="Arrow">
                                         </button>
                                     </a>
                                 </div>
@@ -382,64 +346,15 @@
                             <p>Berikut ini adalah rumah sakit yang menjadi rujukan untuk pasien dengan status Pasien dalam Pengawasan. Anda harus mengunjungi fasilitas kesehatan terdekat terlebih dahulu seperti klinik/rumah sakit umum sebelum akhirnya dapat dirujuk ke rumah sakit khusus di bawah ini.</p>
                         </div>
                         <div class="col-12 mt-3">
-                            <div class="col-lg-4 col-search">
-                                <div class="row">
-                                    <input type="text" id="myInput-RS" onkeyup="searchRS()" placeholder="Cari rumah sakit" title="Cari kota/kabupaten">
-                                    <img src="/img/search.png" alt="">
+                            <div class="col-md-5 col-search btn dropdown-toggle" data-toggle="dropdown">
+                                <span>Cari rumah sakit rujukan</span>
+                                <img src="/img/botArrow.png" alt="arrow">
+                                <div class="dropdown-menu" id="dropRS">
+                                  <!-- FROM JS -->
                                 </div>
                             </div>
                             <div class="row" id="row-card-RS">
-                                <div class="col-lg-4 card-RS">
-                                    <div class="col-12">
-                                        <div class="card-line"></div>
-                                        <div class="col-12 px-0">
-                                            <h5>RSUP H. Adam Malik</h5>
-                                            <span>Jl. Bunga Lau No. 17, Kec. Medan Tuntungan</span>
-                                        </div>
-                                        <div class="col-12 px-0">
-                                            <a href="tel:(061) 8360143">
-                                            <button class="btn mt-3">
-                                                (061) 8360143
-                                            </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 card-RS">
-                                    <div class="col-12">
-                                        <div class="card-line"></div>
-                                        <div class="col-12 px-0">
-                                            <h5>RSUD Dr. Djasamen Saragih</h5>
-                                            <span>Jl. Sutomo No. 230, Simalungun, Kec. Siantar Sel</span>
-                                        </div>
-                                        <div class="col-12 px-0">
-                                            <a href="tel:(0622) 22959">
-                                            <button class="btn mt-3">
-                                                (0622) 22959
-                                            </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 card-RS">
-                                    <div class="col-12">
-                                        <div class="card-line"></div>
-                                        <div class="col-12 px-0">
-                                            <h5>RSU Kabanjahe</h5>
-                                            <span>Jl. Selamat Ketaren No. 08, Lau Cimba, Kabanjahe</span>
-                                        </div>
-                                        <div class="col-12 px-0">
-                                            <a href="tel:(0628) 22959">
-                                            <button class="btn mt-3">
-                                                (0628) 22959
-                                            </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <!-- FROM DBS -->
                             </div>
                         </div>
 
@@ -458,11 +373,163 @@
         </div>
     </section>
 
+    <section id="artikel-home">
+        <div class="container">
+            
+            <div class="col-12 wrap-risiko bg-white">
+                <div class="row">                    
+                    <div class="col-lg-6 img-covid text-center pr-3">
+                        <a href="https://www.freepik.com/stories"><img id="distancing" src="/img/distancing.png" alt="Grafik Physical Distancing"></a>
+                    </div>
+                    <div class="col-lg-6 con-risiko">
+                        <h4><b>Kenapa harus Physical Distancing ?</b></h4>
+                        <p>COVID-19 menyebar dengan cepat. Orang dapat terinfeksi tanpa menunjukkan gejala, namun tetap dapat menyebarkannya ke orang lain. Jika kita tidak melakukan upaya pencegahan berupa menghindari keramaian, jumlah orang terinfeksi akan meledak dan fasilitas layanan kesehatan akan kewalahan sehingga banyak kasus akan tidak tertangani.</p>
+                        <p><b>Social distancing akan mengurangi laju penularan dan memungkinkan pasien terinfeksi untuk ditangani hingga sembuh, seperti di grafik terlampir.</b></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 wrap-risiko bg-white mt-4">
+                <div class="row">
+                    <div class="col-lg-7 con-risiko">
+                        <h3><b>Lindungi Diri Kita dan Orang Lain</b></h3>
+                        <p>Sampai saat ini COVID-19 belum memiliki vaksin, sehingga cara terbaik untuk tidak terinfeksi adalah dengan menghindari terekspos virus.</p>
+                        <p><b>COVID-19 dapat menyebar dari orang ke orang melalui tetesan kecil (droplet) saat batuk atau bersin. Maka yang bisa Anda lakukan adalah :</b></p>
+
+                        <div class="col-12 mt-4 px-0">
+                            <div class="col-12 list-lindungi">
+                                <div class="li-wash">
+                                <img src="/img/checklist.png" alt="Icon">
+                                </div>
+                                <div class="col-11">Sering cuci tangan dengan sabun atau hand-sanitizer</div>
+                            </div>
+                            <div class="col-12 list-lindungi">
+                                <div class="li-wash">
+                                <img src="/img/checklist.png" alt="Icon">
+                                </div>
+                                <div class="col-11">Hindari menyentuh wajah, terutama hidung, mulut, dan mata</div>
+                            </div>
+                            <div class="col-12 list-lindungi">
+                                <div class="li-wash">
+                                <img src="/img/checklist.png" alt="Icon">
+                                </div>
+                                <div class="col-11">Bersihkan permukaan benda yang disentuh banyak orang</div>
+                            </div>
+                            <div class="col-12 list-lindungi">
+                                <div class="li-wash">
+                                <img src="/img/checklist.png" alt="Icon">
+                                </div>
+                                <div class="col-11">Social Distancing! Minimalisir kontak fisik dengan sesama</div>
+                            </div>
+                            <div class="col-12 list-lindungi">
+                                <div class="li-wash">
+                                <img src="/img/checklist.png" alt="Icon">
+                                </div>
+                                <div class="col-11">Jaga jarak 1-3 meter dengan orang yang sakit</div>
+                            </div>
+                            <div class="col-12 list-lindungi">
+                                <div class="li-wash">
+                                <img src="/img/checklist.png" alt="Icon">
+                                </div>
+                                <div class="col-11">Jika sakit, maka tetap tinggal dirumah dan gunakan masker</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 img-covid text-center">
+                        <a href="https://www.freepik.com/stories"><img src="/img/hand-wash.png" alt="Flu"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 wrap-risiko bg-white mt-4">
+                <div class="row">                    
+                    <div class="col-lg-6 img-question pr-3">
+                        <a href="https://www.freepik.com/stories"><img id="question" src="/img/question-home.png" alt="Apa itu Covid-19?"></a>
+                    </div>
+                    <div class="col-lg-6 con-apa-covid">
+                        <h4><b>Apa Itu COVID-19?</b></h4>
+                        <p>COVID-19 adalah penyakit yang disebabkan oleh Novel Coronavirus (2019-nCoV), jenis baru coronavirus yang pada manusia menyebabkan penyakit mulai flu biasa hingga penyakit yang serius seperti Middle East Respiratory Syndrome (MERS) dan Sindrom Pernapasan Akut Berat/ Severe Acute Respiratory Syndrome (SARS).</p>
+                        <p>Pada 11 Februari 2020, World Health Organization (WHO) mengumumkan nama penyakit yang disebabkan 2019-nCov, yaitu Coronavirus Disease (COVID-19).</p>
+
+                        <h4 class="mt-4"><b>Gejala</b></h4>
+                        <p>Gejala umum berupa demam ≥38°C, batuk kering, dan sesak napas. Jika ada orang yang dalam 14 hari sebelum muncul gejala tersebut pernah melakukan perjalanan ke negara terjangkit, atau pernah merawat/kontak erat dengan penderita COVID-19, maka terhadap orang tersebut akan dilakukan pemeriksaan laboratorium lebih lanjut untuk memastikan diagnosisnya.</p>
+
+                        <h4 class="mt-4"><b>Penularan</b></h4>
+                        <p>Seseorang dapat terinfeksi dari penderita COVID-19. Penyakit ini dapat menyebar melalui tetesan kecil (droplet) dari hidung atau mulut pada saat batuk atau bersin. Droplet tersebut kemudian jatuh pada benda di sekitarnya. Kemudian jika ada orang lain menyentuh benda yang sudah terkontaminasi dengan droplet tersebut, lalu orang itu menyentuh mata, hidung atau mulut (segitiga wajah), maka orang itu dapat terinfeksi COVID-19. Seseorang juga bisa terinfeksi COVID-19 ketika tanpa sengaja menghirup droplet dari penderita. Inilah sebabnya mengapa kita penting untuk menjaga jarak hingga kurang lebih satu meter dari orang yang sakit.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="thumbInfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-banner">
+                    <div id="thumb" class="col-lg-12 px-0 wrap-banner thumbnail-carousel" onmouseover="showSlickThumb()" onmouseout="hideSlickThumb()">
+                        <img id="imgThumb" src="/img/banner6.jpg" alt="Banner">
+                        <img id="imgThumb" src="/img/banner3.jpg" alt="Banner">
+                        <img id="imgThumb" src="/img/banner8.jpeg" alt="Banner">
+                        <img id="imgThumb" src="/img/banner9.jpeg" alt="Banner">
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </section>
+
+    <section id="berita-h">
+        <div class="container">
+            <div class="col-12 wrap-berita-h bg-white">
+                <div class="row">
+                    <div class="col-12"><h3>Berita Sumatera Utara</h3></div>
+
+                    <section id="sec-berita">
+                        <div class="col-12 list-berita-h">
+                            <div class="row">
+                            <div class="col-lg-7 text-berita-h">
+                                <h4>Sumut Terima Bantuan 50 Ribu</h4>
+                                <p>Tanggal Upload</p>
+                                <p class="isi-berita">KOTA MEDAN - Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ut voluptatum reprehenderit veritatis, quia magnam!</p>
+                            </div>
+                            <div class="col-lg-5 img-berita-h">
+                                <img src="/img/banner3.jpg" width="100%" alt="">
+                            </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-12 list-berita-h">
+                            <div class="row">
+                            <div class="col-lg-7 text-berita-h">
+                                <h4>Sumut Terima Bantuan 50 Ribu</h4>
+                                <p>Tanggal Upload</p>
+                                <p class="isi-berita">KOTA MEDAN - Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ut voluptatum reprehenderit veritatis, quia magnam!</p>
+                            </div>
+                            <div class="col-lg-5 img-berita-h">
+                                <img src="/img/banner3.jpg" width="100%" alt="">
+                            </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="col-12 text-center mt-4">
+                        <a href="/berita">
+                            <button class="btn btn-data">
+                                Lihat Berita Lainnya
+                                <img src="/img/arrow.png" alt="Arrow">
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <% include templates/footer.ejs %>
 
     <script>
         hideSlick();
+        hideSlickThumb();
         function hideSlick(){
             document.getElementById('slick-next').style.display = 'none';
             document.getElementById('slick-prev').style.display = 'none';
@@ -471,29 +538,62 @@
             document.getElementById('slick-next').style.display = 'block';
             document.getElementById('slick-prev').style.display = 'block';
         }
+        function hideSlickThumb(){            
+            let slick = document.getElementsByClassName('thumbnail-carousel');
+            let tag = slick[0].children;
+            tag[0].style.display = "none";
+            tag[2].style.display = "none";
+        }
+        
+        function showSlickThumb(){
+            let slick = document.getElementsByClassName('thumbnail-carousel');
+            let tag = slick[0].children;
+            tag[0].style.display = "block";
+            tag[2].style.display = "block";
+        }
     </script>
 
     <script>
+    limitTextBerita();
+    function limitTextBerita(){
+        let p = document.getElementsByClassName('isi-berita');
+        let maxLength = 120;
+
+        for (let i = 0; i < p.length; i++) {
+            let text = p[i].innerText;
+            let textLen = text.length;
+
+            if (textLen > maxLength) {
+                var res = text.substr(0, maxLength) + '...';
+                // console.log(res);
+                p[i].innerText = res;
+            }
+        }
+    }
+    
     readTodos();
     async function readTodos() {
         try{
             const getAPI = await fetch("/api/pasien")
             const result = await getAPI.json();
 
-            const lastUpdate = result.tanggal;
+            const pick = result.data;
+            const last = result.data.length-1;
+
+            const lastUpdate = pick[last].tanggal;
             document.getElementById('last-update').innerHTML = lastUpdate;
 
-            const ps_positif = result.data[result.data.length-1].pc19_dirawat;
-            const ps_sembuh = result.data[result.data.length-1].pc19_sembuh;
-            const ps_meninggal = result.data[result.data.length-1].pc19_meninggal;
+            const ps_positif = pick[last].pc19_dirawat;
+            const ps_sembuh = pick[last].pc19_sembuh;
+            const ps_meninggal = pick[last].pc19_meninggal;
 
-            const odp_km = result.data[result.data.length-1].odp_karantina_mandiri;
-            const odp_tg = result.data[result.data.length-1].odp_tanpa_gejala;
-            const odp_selesai = result.data[result.data.length-1].odp_selesai_pantau;
+            const odp_km = pick[last].odp_karantina_mandiri;
+            const odp_tg = pick[last].odp_tanpa_gejala;
+            const odp_selesai = pick[last].odp_selesai_pantau;
 
-            const pdp_dirawat = result.data[result.data.length-1].pdp_dirawat;
-            const pdp_pulang = result.data[result.data.length-1].pdp_pulang;
-            const pdp_meninggal = result.data[result.data.length-1].pdp_meninggal;
+            const pdp_dirawat = pick[last].pdp_dirawat;
+            const pdp_pulang = pick[last].pdp_pulang;
+            const pdp_meninggal = pick[last].pdp_meninggal;
 
             // console.log(todos.data[todos.data.length-1]);
             document.getElementById('data-positif').innerHTML = ps_positif;
@@ -523,17 +623,18 @@
         }
     }
 
-    function searchFunction() {
+    function searchCC(j) {
         var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
+
+        input = document.getElementById("myInput"+j);
+        filter = input.textContent;
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[1];
             if (td) {
                 txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                if (txtValue == filter) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
@@ -542,17 +643,17 @@
         }
     }
 
-    function searchRS() {
+    function searchRS(j) {
         var input, filter, row, tr, td, i, txtValue;
-        input = document.getElementById("myInput-RS");
-        filter = input.value.toUpperCase();
+        input = document.getElementById("myInput-RS"+j);
+        filter = input.textContent;
         row = document.getElementById("row-card-RS");
         tr = row.getElementsByClassName('card-RS');
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("h5")[0];
             if (td) {
                 txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                if (txtValue == filter) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
@@ -561,11 +662,47 @@
         }
         if (input.value.length == 0) {limitRS();}
     }
+    
+    getDataCC();
+    async function getDataCC(){
+        const getAPI = await fetch("/api/pasien/recent")
+        const result = await getAPI.json();
+        const data = result.data;
+        let tbody = "";
+        let dropCC = "";
 
-    limitRS();
+        for (let i = 0; i < data.length; i++) {
+            let j = i+1;
+            tbody += "<tr><td>"+ j +"</td><td>"+ data[i].kabupaten +"</td><td>-</td><td>-</td></tr>";
+            dropCC += "<p id='myInput"+j+"' class='dropdown-item' onclick='searchCC("+j+")'>"+ data[i].kabupaten +"</p>";
+        }
+
+        document.getElementById('bodyTable').innerHTML = tbody;
+        document.getElementById('dropCC').innerHTML = dropCC;
+    }
+
+    getDataRS();
+    async function getDataRS(){
+        const getAPI = await fetch("/api/rsrujukan");
+        const result = await getAPI.json();
+        const data = result.data;
+        let tbody = "";
+        let dropRS = "";
+
+        for (let i = 0; i < data.length; i++) {
+            let j = i+1;
+            tbody += "<div class='col-lg-4 card-RS'><div class='col-12'><div class='card-line'></div><div class='px-0'><h5>"+ data[i].nama +"</h5><span>"+ data[i].alamat +"</span></div><div class='px-0'><a href='tel:"+ data[i].no_telp +"'><button class='btn mt-3'>"+ data[i].no_telp +"</button></a></div></div></div>";
+
+            dropRS += "<p id='myInput-RS"+j+"' class='dropdown-item' onclick='searchRS("+j+")'>"+ data[i].nama +"</p>";
+        }
+
+        document.getElementById('row-card-RS').innerHTML = tbody;
+        document.getElementById('dropRS').innerHTML = dropRS;
+        limitRS();
+    }
+    
     function limitRS(){
-        var input, filter, row, tr, td, i, txtValue;
-
+        let input, filter, row, tr, td, i, txtValue;
         row = document.getElementById("row-card-RS");
         tr = row.getElementsByClassName('card-RS');
 
@@ -574,16 +711,39 @@
         }
     }
     </script>
-    
-    <script src="/js/slick.min.js"></script>
 
+    <script src="/js/slick.min.js"></script>
     <script type="text/javascript">
+    
         $(document).ready(function(){
             $('.fade-carousel').slick({
                 autoplay: true,
                 autoplaySpeed: 5000,
             });
         });
+
+        if (window.matchMedia('(max-width: 768px)').matches){
+            $(document).ready(function(){
+                $('.thumbnail-carousel').slick({
+                    autoplay: true,
+                    autoplaySpeed: 5000,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            });
+        }if (window.matchMedia('(min-width: 768px)').matches){
+            $(document).ready(function(){
+                $('.thumbnail-carousel').slick({
+                    autoplay: true,
+                    autoplaySpeed: 4000,
+                    infinite: false,
+                    lazyLoad: 'ondemand',
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                });
+            });
+        }
     </script>
 </body>
 </html>
