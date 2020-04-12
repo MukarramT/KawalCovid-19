@@ -4,7 +4,10 @@ const engine = require('ejs-locals');
 const path = require('path');
 const app = express();
 
-// let public = path.join(__dirname, '..', 'storage-covid-sumut', 'artikel');
+// let public = path.join(__dirname, '..', 'storage-covid-sumut');
+
+// app.use('/public', express.static('public'));
+// app.use('/publicImg', express.static(public));
 
 app.use(express.static('public'));
 app.use(express.json());

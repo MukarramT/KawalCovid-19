@@ -103,7 +103,7 @@
     <script>
     getDataCC();
     async function getDataCC(){
-        const getAPI = await fetch("/api/pasien/recent")
+        const getAPI = await fetch("/api/kabupaten")
         const result = await getAPI.json();
         const data = result.data;
         let tbody = "";
@@ -111,8 +111,24 @@
 
         for (let i = 0; i < data.length; i++) {
             let j = i+1;
-            tbody += "<tr><td>"+ j +"</td><td>"+ data[i].kabupaten +"</td><td>-</td><td>-</td></tr>";
-            dropCC += "<p id='myInput"+j+"' class='dropdown-item' onclick='searchCC("+j+")'>"+ data[i].kabupaten +"</p>";
+            if (data[i].call_center.length == 0 && data[i].hotline.length == 0) {
+                data[i].call_center = "-";
+                data[i].hotline = "-";
+                tbody += "<tr><td>"+ j +"</td><td>"+ data[i].nama +"</td><td>"+ data[i].call_center +"</td><td>"+ data[i].hotline +"</td></tr>";
+            }
+            else if (data[i].call_center.length == 0) {
+                data[i].call_center = "-";
+                tbody += "<tr><td>"+ j +"</td><td>"+ data[i].nama +"</td><td>"+ data[i].call_center +"</td><td><a href='tel:"+ data[i].hotline +"'><button class='btn'>"+ data[i].hotline +"</button></a></td></tr>";
+            }
+            else if (data[i].hotline.length == 0) {
+                data[i].hotline = "-";
+                tbody += "<tr><td>"+ j +"</td><td>"+ data[i].nama +"</td><td><a href='tel:"+ data[i].call_center +"'><button class='btn'>"+ data[i].call_center +"</button></a></td><td>"+ data[i].hotline +"</td></tr>";
+            }
+            else{
+                tbody += "<tr><td>"+ j +"</td><td>"+ data[i].nama +"</td><td><a href='tel:"+ data[i].call_center +"'><button class='btn'>"+ data[i].call_center +"</button></a></td><td><a href='tel:"+ data[i].hotline +"'><button class='btn'>"+ data[i].hotline +"</button></a></td></tr>";
+            }
+
+            dropCC += "<p id='myInput"+j+"' class='dropdown-item' onclick='searchCC("+j+")'>"+ data[i].nama +"</p>";
         }
 
         document.getElementById('bodyTable').innerHTML = tbody;
@@ -138,7 +154,7 @@
             }       
         }
     }
-  
+
     getDataRS();
     async function getDataRS(){
         const getAPI = await fetch("/api/rsrujukan");
@@ -156,7 +172,6 @@
 
         document.getElementById('row-card-RS').innerHTML = tbody;
         document.getElementById('dropRS').innerHTML = dropRS;
-        limitRS();
     }
 
     function searchRS(j) {
@@ -176,7 +191,6 @@
                 }
             }
         }
-        if (input.value.length == 0) {limitRS();}
     }
     </script>
     

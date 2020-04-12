@@ -22,6 +22,9 @@ a{
     color: #000000;
     text-decoration: none;
 }
+a:hover{
+    text-decoration: none;
+}
 p{
     margin-bottom: 0;
 }
@@ -720,14 +723,20 @@ a#link-faq:hover{
     padding: 32px 16px;
     border-bottom: 1px solid #dddddd;
 }
-.list-berita-h h4{
+/* .list-berita-h h4{
     color: var(--bg-green-4);
-}
+} */
 .list-berita-h:last-child{
     border-bottom: none;
 }
 p.isi-berita{
     margin-top: 32px;
+}
+.list-berita-h a{
+    color: #7EBF60;
+}
+.list-berita-h a:hover{
+    color: var(--bg-green-2);
 }
 @media(max-width:991px){
     .img-berita-h{display: none;}
