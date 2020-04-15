@@ -54,12 +54,7 @@ li.nav-item a :not(button){
 }
 a.nav-link{
     color: #666666;
-    /* padding: 0; */
 }
-/* a.nav-link:not():hover{
-    color: #000000;
-    background-color: var(--bg-green-2);
-} */
 .active{
     color: #000000;
     font-weight: 600;
@@ -200,7 +195,6 @@ a#call-head:hover{color: #000000;}
         font-size: 13px;
     }
 }
-@media(max-width:768px){}
 @media(max-width:576px){
     .col-banner, .col-hub{
         padding-left: 0;
@@ -308,14 +302,15 @@ a#call-head:hover{color: #000000;}
     font-weight: bold;
 }
 .data-odp{
+    margin: 0 auto;
     padding-right: 0;
 }
 .data-odp p{
-    font-size: 13px;
+    /* font-size: 13px; */
 }
 .data-odp p:first-child{
     margin-top: 10px;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: bold;
     line-height: 35px;
     color: #32A37F;
@@ -610,7 +605,7 @@ p#khusus{
     color: var(--bg-red);
 }
 @media(min-width:991px){
-    #daftar-RS .card-RS:nth-child(n+3){
+    #daftar-RS .card-RS:nth-child(n+4){
         margin-top: 16px;
     }
 }
@@ -709,12 +704,11 @@ a#link-faq:hover{
 
 
 
-
 /* BERITA-HOME */
 #berita-h{margin-top: 80px;}
 .wrap-berita-h{
     border-radius: 10px;
-    padding: 24px 32px;
+    padding: 24px;
 }
 .wrap-berita-h h3, .wrap-berita-h h4{
     font-weight: bold;
@@ -732,20 +726,16 @@ a#link-faq:hover{
 p.isi-berita{
     margin-top: 32px;
 }
-.list-berita-h a{
+.list-berita-h a, .list-berita a{
     color: #7EBF60;
 }
-.list-berita-h a:hover{
+.list-berita-h a:hover, .list-berita a:hover{
     color: var(--bg-green-2);
 }
+.img-berita-h img{border-radius: 10px;}
 @media(max-width:991px){
     .img-berita-h{display: none;}
 }
-
-
-
-
-
 
 
 
@@ -785,6 +775,14 @@ p.isi-berita{
     letter-spacing: .5px;
     margin-bottom: 15px;
 }
+#tabel-kota .table-responsive{
+    max-height: 500px;
+    overflow-y: auto;
+}
+/* #myTable{
+    height: 100px;
+    overflow: auto;
+} */
 @media(max-width:991px){
 }
 @media(max-width:768px){
@@ -806,6 +804,19 @@ p.isi-berita{
 
 
 
+
+/* HALAMAN BERITA */
+#berita .wrap-berita-h{
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 18px;
+}
+.judul-berita{
+    padding: 0 0 15px 24px;
+}
+.judul-berita h3{
+    font-weight: bold;
+}
 
 
 

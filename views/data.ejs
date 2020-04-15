@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 px-0" style="display: none;">
+                                <!-- <div class="col-sm-12 px-0" style="display: none;">
                                     <div class="row">
                                         <div class="col-8">
                                             Indonesia
@@ -63,7 +63,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>                            
                         </div>
 
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 px-0" style="display: none;">
+                                <!-- <div class="col-sm-12 px-0" style="display: none;">
                                     <div class="row">
                                         <div class="col-8">
                                             Indonesia
@@ -100,7 +100,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -126,7 +126,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 px-0" style="display: none;">
+                                <!-- <div class="col-sm-12 px-0" style="display: none;">
                                     <div class="row">
                                         <div class="col-8">
                                             Indonesia
@@ -137,7 +137,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -145,8 +145,38 @@
                 </div>
 
                 <div class="col-lg-12">
-                    <div class="row">                        
-                        <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-10 ml-auto mr-auto text-center">
+                            <div class="row">
+                            <div class="col-lg-6">
+                                <div class="col-12 wrap-odp bg-white px-0">
+                                    <div class="col-12 title-odp mb-3">
+                                        <p>ODP (Orang Dalam Pemantauan)</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="col-md-4 data-odp">
+                                            <p id="data-odp" class="font-angka">0000</p>
+                                            <p>Total</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="col-12 wrap-odp bg-white px-0">
+                                    <div class="col-12 title-odp mb-3">
+                                        <p>PDP (Pasien Dalam Pengawasan)</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="col-md-4 data-odp text-center">
+                                            <p id="data-pdp" class="font-angka">0000</p>
+                                            <p>Total</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-6">
                             <div class="col-lg-12 wrap-odp bg-white">
                                 <div class="row">
                                     <div class="col-12 title-odp mb-3">
@@ -187,7 +217,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -334,27 +364,15 @@
             const ps_positif = pick[last].pc19_dirawat;
             const ps_sembuh = pick[last].pc19_sembuh;
             const ps_meninggal = pick[last].pc19_meninggal;
-
-            const odp_km = pick[last].odp_karantina_mandiri;
-            const odp_tg = pick[last].odp_tanpa_gejala;
-            const odp_selesai = pick[last].odp_selesai_pantau;
-
-            const pdp_dirawat = pick[last].pdp_dirawat;
-            const pdp_pulang = pick[last].pdp_pulang;
-            const pdp_meninggal = pick[last].pdp_meninggal;
+            const data_odp = pick[last].odp;
+            const data_pdp = pick[last].pdp
 
             // console.log(todos.data[todos.data.length-1]);
             document.getElementById('data-positif').innerHTML = ps_positif;
             document.getElementById('data-sembuh').innerHTML = ps_sembuh;
             document.getElementById('data-meninggal').innerHTML = ps_meninggal;
-
-            document.getElementById('odp-km').innerHTML = odp_km;
-            document.getElementById('odp-tg').innerHTML = odp_tg;
-            document.getElementById('odp-selesai').innerHTML = odp_selesai;
-
-            document.getElementById('pdp-dirawat').innerHTML = pdp_dirawat;
-            document.getElementById('pdp-pulang').innerHTML = pdp_pulang;
-            document.getElementById('pdp-meninggal').innerHTML = pdp_meninggal;
+            document.getElementById('data-odp').innerHTML = data_odp;
+            document.getElementById('data-pdp').innerHTML = data_pdp;
         }
         catch (e) {
             console.log("Error reading the todos.")
@@ -371,7 +389,7 @@
 
         for (let i = 0; i < data.length; i++) {
             let j = i+1;
-            tbody += "<tr><td>"+ j +"</td><td>"+ data[i].kabupaten +"</td><td>"+ data[i].total_odp +"</td><td>"+ data[i].total_pdp +"</td><td>"+ data[i].pc19_dirawat +"</td><td>"+ data[i].pc19_sembuh +"</td><td>"+ data[i].pc19_meninggal +"</td></tr>";
+            tbody += "<tr><td>"+ j +"</td><td>"+ data[i].kabupaten +"</td><td>"+ data[i].odp +"</td><td>"+ data[i].pdp +"</td><td>"+ data[i].pc19_dirawat +"</td><td>"+ data[i].pc19_sembuh +"</td><td>"+ data[i].pc19_meninggal +"</td></tr>";
             dropCC += "<p id='myInput"+j+"' class='dropdown-item' onclick='searchCC("+j+")'>"+ data[i].kabupaten +"</p>";
         }
 
@@ -485,41 +503,58 @@
             const getAPI = await fetch("/api/pasien")
             const result = await getAPI.json();
             const data = result.data;
+            let limit = data.length-15;
 
-            data.forEach(t=>{
-                var tgl = t.tanggal.split("-");
+            for (let i = limit; i < data.length; i++) {
+                let el = data[i];
+                var tgl = el.tanggal.split("-");
                 tgl.reverse();
                 tgl.pop();
                 xData.push(tgl.join("-"));
 
                 if (code == 0) {
-                    yData.push(parseInt(t.pc19_dirawat));
+                    yData.push(parseInt(el.pc19_dirawat));
                 }
                 else if (code == 1) {
-                    yData.push(parseInt(t.pc19_sembuh));
+                    yData.push(parseInt(el.pc19_sembuh));
                 }
                 else if (code == 2) {
-                    yData.push(parseInt(t.pc19_meninggal));
+                    yData.push(parseInt(el.pc19_meninggal));
                 }
                 else if (code == 3) {
-                    var totalODP = parseInt(t.odp_karantina_mandiri)+parseInt(t.odp_tanpa_gejala)+parseInt(t.odp_selesai_pantau);
-                    yData.push(totalODP);
+                    // var totalODP = parseInt(t.odp);
+                    yData.push(parseInt(el.odp));
                 }
                 else{
-                    var totalPDP = parseInt(t.pdp_dirawat)+parseInt(t.pdp_meninggal)+parseInt(t.pdp_pulang);
-                    yData.push(totalPDP);
+                    yData.push(parseInt(el.pdp));
                 }
-            });
 
-            // olTodo.appendChild(li)
-            // todos.forEach(t=>{
-            //     const li = document.createElement("p")
-            //     li.textContent = t.title;
-            //     li.id = t.id;
-            //     // li.textContent = t.name +" "+ t.desc;
-            //     // li.id = t.id;
-            //     olTodo.appendChild(li)
-            // })
+            }
+
+            // data.forEach(t=>{
+            //     var tgl = t.tanggal.split("-");
+            //     tgl.reverse();
+            //     tgl.pop();
+            //     xData.push(tgl.join("-"));
+
+            //     if (code == 0) {
+            //         yData.push(parseInt(t.pc19_dirawat));
+            //     }
+            //     else if (code == 1) {
+            //         yData.push(parseInt(t.pc19_sembuh));
+            //     }
+            //     else if (code == 2) {
+            //         yData.push(parseInt(t.pc19_meninggal));
+            //     }
+            //     else if (code == 3) {
+            //         // var totalODP = parseInt(t.odp);
+            //         yData.push(parseInt(t.odp));
+            //     }
+            //     else{
+            //         yData.push(parseInt(t.pdp));
+            //     }
+            // });
+        
         }
         catch (e) {
             console.log("Error reading the todos.")

@@ -26,7 +26,11 @@ app.get("/kontak", (req, res) => {
     res.render('kontak', {active: 2})
 });
 app.get("/berita", (req, res) => {
-    res.render('berita', {active: 3})
+    res.render('berita', {active: 3, id_berita:''})
+});
+app.get("/berita/:id", (req, res) => {
+    const chooseID = req.params;
+    res.render('berita', {active: 3, id_berita: chooseID.id})
 });
 app.get("/faq", (req, res) => {
     res.render('faq', {active: 4})
@@ -58,6 +62,18 @@ app.get('/api/:req', (req, res) => {
 app.get('/api/:req/:recent', (req, res) => {
     const chooseAPI = req.params;
     var pick = chooseAPI.req + "/" + chooseAPI.recent;    
+    
+    const reqAPI = request({
+        url: "http://128.199.143.66:3000/" + pick,
+        json: true
+    }, (err, reponse, body) => {
+        res.send(body);
+    });
+});
+
+app.get('/api/:req/:req2/:id', (req, res) => {
+    const chooseAPI = req.params;
+    var pick = chooseAPI.req + "/" + chooseAPI.req2 + "/" + chooseAPI.id;
     
     const reqAPI = request({
         url: "http://128.199.143.66:3000/" + pick,
