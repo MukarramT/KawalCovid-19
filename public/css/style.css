@@ -181,6 +181,15 @@ a#call-head:hover{color: #000000;}
 .wrap-call p:nth-child(3){
     margin-top: 14px;
 }
+#head .col-banner{
+    /* overflow: hidden;
+    position: relative;
+    max-height: 360px; */
+}
+#head .col-banner img{
+    /* max-width: 600px; */
+    /* height: 400px; */
+}
 @media(max-width:991px){
     .col-hub{
         margin-top: 32px;
@@ -385,7 +394,6 @@ a#call-head:hover{color: #000000;}
 }
 .img-question a{
     display: flex;
-    height: 0px;
 }
 .img-covid img{width: 80%;}
 .img-covid img#distancing{
@@ -569,19 +577,26 @@ img#question{
 #thumbInfo{
     margin-top: 80px;
 }
-.thumbnail-carousel img{
+.thumbnail-carousel a{
     margin-right: 8px;
     margin-left: 8px;
 }
+.thumbnail-carousel img{
+    border-radius: 10px;
+    width: 250px;
+    /* max-height: 355px; */
+}
 @media(max-width:768px){
     .thumbnail-carousel img{
-        margin: 0;
+        width: 200px;
     }
 }
-@media(max-width:576px){
+@media(max-width:576px){  
+    #thumb{
+        margin: 0 15px;
+    }  
     .thumbnail-carousel img{
-        margin-left: 16px;
-        margin-right: 16px;
+        width: 150px;
     }
 }
 
