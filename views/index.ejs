@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/baguetteBox.css">
+    <link href="https://cdn.jsdelivr.net/npm/flickity@latest/dist/flickity.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@700&display=swap" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>    
     <script src="/js/baguetteBox.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flickity@2.2.1/dist/flickity.pkgd.min.js"></script>
 </head>
 <body onload="hideSlick(), hideSlickThumb()">
     <% include templates/navbar.ejs %>
@@ -456,9 +458,9 @@
             <div class="row">
                 <div class="col-lg-12 col-banner">
                     <div id="thumb" class="col-lg-12 px-0 wrap-banner thumbnail-carousel" onmouseover="showSlickThumb()" onmouseout="hideSlickThumb()">
-                        <a href="/img/1.jpg"><img id="imgThumb" src="/img/1.jpg" alt="Banner"></a>
-                        <a href="/img/2.jpg"><img id="imgThumb" src="/img/2.jpg" alt="Banner"></a>
-                        <a href="/img/3.jpg"><img id="imgThumb" src="/img/3.jpg" alt="Banner"></a>
+                        <!-- <a href="/img/1.jpg"><img id="imgThumb" src="/img/1-1-215x300.jpg" alt="Banner"></a>
+                        <a href="/img/2.jpg"><img id="imgThumb" src="/img/2-215x300.jpg" alt="Banner"></a>
+                        <a href="/img/3.jpg"><img id="imgThumb" src="/img/3-215x300.jpg" alt="Banner"></a>
                         <a href="/img/4.jpeg"><img id="imgThumb" src="/img/4.jpeg" alt="Banner"></a>
                         <a href="/img/5.png"><img id="imgThumb" src="/img/5.png" alt="Banner"></a>
                         <a href="/img/6.png"><img id="imgThumb" src="/img/6.png" alt="Banner"></a>
@@ -468,7 +470,7 @@
                         <a href="/img/10.jpeg"><img id="imgThumb" src="/img/10.jpeg" alt="Banner"></a>
                         <a href="/img/11.jpg"><img id="imgThumb" src="/img/11.jpg" alt="Banner"></a>
                         <a href="/img/12.jpeg"><img id="imgThumb" src="/img/12.jpeg" alt="Banner"></a>
-                        <a href="/img/13.jpg"><img id="imgThumb" src="/img/13.jpg" alt="Banner"></a>
+                        <a href="/img/13.jpg"><img id="imgThumb" src="/img/13.jpg" alt="Banner"></a> -->
                     </div>
                 </div>
             </div>
@@ -551,6 +553,30 @@
     </script>
 
     <script>
+    getThumbnail();
+    async function getThumbnail(){
+        try {
+            const getAPI = await fetch("/api/infografis")
+            const result = await getAPI.json();
+            const data = result.data;
+            let thumb = "";
+
+            // let s = document.getElementsByClassName('thumbnail-carousel');
+            // let t = s[0].children;
+            // let track = t[1].children;
+            // track[0].id = "thumb-track";
+            // console.log(track);
+
+            data.forEach(list => {
+                thumb += '<a href="'+ list.original +'" class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1"><img id="imgThumb" src="http://128.199.143.66:8080/infografis/'+ list.thumbnail +'" alt="Banner"></a>';
+            });
+            document.getElementById('thumb').innerHTML = thumb;
+
+        } catch (error) {
+            console.log("Error read API thumbnail");
+        }
+    }
+        
     getBerita();
     async function getBerita(){
         try {
@@ -803,45 +829,58 @@
             });
         });
 
-        if (window.matchMedia('(max-width: 768px)').matches){
-            $(document).ready(function(){
-                $('.thumbnail-carousel').slick({
-                    autoplay: true,
-                    autoplaySpeed: 5000,
-                    infinite: true,
-                    // slidesToShow: 1,
-                    slidesToScroll: 1,
-                    variableWidth: true,
-                    adaptiveHeight: true
-                });
+        $(document).ready(function(){
+            $('.thumbnail-carousel').slick({
+                // autoplay: true,
+                autoplaySpeed: 4000,
+                infinite: true,
+                lazyLoad: 'ondemand',
+                // slidesToShow: 3,
+                slidesToScroll: 1,
+                variableWidth: true,
+                // adaptiveHeight: true
             });
-        }if (window.matchMedia('(max-width: 991px)').matches){
-            $(document).ready(function(){
-                $('.thumbnail-carousel').slick({
-                    autoplay: true,
-                    autoplaySpeed: 4000,
-                    infinite: true,
-                    lazyLoad: 'ondemand',
-                    // slidesToShow: 2,
-                    slidesToScroll: 1,
-                    variableWidth: true,
-                    adaptiveHeight: true
-                });
-            });
-        }if (window.matchMedia('(min-width: 991px)').matches){
-            $(document).ready(function(){
-                $('.thumbnail-carousel').slick({
-                    autoplay: true,
-                    autoplaySpeed: 4000,
-                    infinite: true,
-                    lazyLoad: 'ondemand',
-                    // slidesToShow: 3,
-                    slidesToScroll: 1,
-                    variableWidth: true,
-                    adaptiveHeight: true
-                });
-            });
-        }
+        });
+
+        // if (window.matchMedia('(max-width: 768px)').matches){
+        //     $(document).ready(function(){
+        //         $('.thumbnail-carousel').slick({
+        //             autoplay: true,
+        //             autoplaySpeed: 5000,
+        //             infinite: true,
+        //             // slidesToShow: 1,
+        //             slidesToScroll: 1,
+        //             variableWidth: true,
+        //             adaptiveHeight: true
+        //         });
+        //     });
+        // }if (window.matchMedia('(max-width: 991px)').matches){
+        //     $(document).ready(function(){
+        //         $('.thumbnail-carousel').slick({
+        //             autoplay: true,
+        //             autoplaySpeed: 4000,
+        //             infinite: true,
+        //             lazyLoad: 'ondemand',
+        //             // slidesToShow: 2,
+        //             slidesToScroll: 1,
+        //             variableWidth: true,
+        //             adaptiveHeight: true
+        //         });
+        //     });
+        // }if (window.matchMedia('(min-width: 991px)').matches){
+        //     $(document).ready(function(){
+        //         $('.thumbnail-carousel').slick({
+        //             // autoplay: true,
+        //             autoplaySpeed: 4000,
+        //             infinite: true,
+        //             lazyLoad: 'ondemand',
+        //             // slidesToShow: 3,
+        //             slidesToScroll: 1,
+        //             variableWidth: true,
+        //             // adaptiveHeight: true
+        //         });
+        //     });
+        // }
     </script>
 </body>
 </html>
